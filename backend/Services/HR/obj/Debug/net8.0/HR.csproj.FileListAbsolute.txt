@@ -1,0 +1,7 @@
+C:\Users\SURFACE PRO 7\Documents\erp_tiin\backend\Services\HR\obj\Debug\net8.0\HR.csproj.AssemblyReference.cache
+C:\Users\SURFACE PRO 7\Documents\erp_tiin\backend\Services\HR\obj\Debug\net8.0\HR.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SURFACE PRO 7\Documents\erp_tiin\backend\Services\HR\obj\Debug\net8.0\HR.AssemblyInfoInputs.cache
+C:\Users\SURFACE PRO 7\Documents\erp_tiin\backend\Services\HR\obj\Debug\net8.0\HR.AssemblyInfo.cs
+C:\Users\SURFACE PRO 7\Documents\erp_tiin\backend\Services\HR\obj\Debug\net8.0\HR.csproj.CoreCompileInputs.cache
+C:\Users\SURFACE PRO 7\Documents\erp_tiin\backend\Services\HR\obj\Debug\net8.0\HR.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\SURFACE PRO 7\Documents\erp_tiin\backend\Services\HR\obj\Debug\net8.0\HR.MvcApplicationPartsAssemblyInfo.cache

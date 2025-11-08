@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nodeen-primary: #0F6AA6;
+  --nodeen-secondary: #29A19C;
+  --nodeen-accent: #F5A623;
+  --nodeen-bg: #0B1B2B;
+  --nodeen-surface: #101F33;
+  --nodeen-text: #EAF2F8;
+}
+
+body {
+  background-color: var(--nodeen-bg);
+  color: var(--nodeen-text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nodeen-surface);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nodeen-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nodeen-secondary);
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-nodeen-primary text-white px-4 py-2 rounded-xl hover:bg-opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-nodeen-secondary focus:ring-offset-2 focus:ring-offset-nodeen-bg;
+}
+
+.btn-secondary {
+  @apply bg-nodeen-secondary text-white px-4 py-2 rounded-xl hover:bg-opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-nodeen-primary focus:ring-offset-2 focus:ring-offset-nodeen-bg;
+}
+
+.btn-accent {
+  @apply bg-nodeen-accent text-white px-4 py-2 rounded-xl hover:bg-opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-nodeen-primary focus:ring-offset-2 focus:ring-offset-nodeen-bg;
+}
+
+.btn-outline {
+  @apply border border-nodeen-primary text-nodeen-primary px-4 py-2 rounded-xl hover:bg-nodeen-primary hover:bg-opacity-10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-nodeen-secondary focus:ring-offset-2 focus:ring-offset-nodeen-bg;
+}
+
+/* Card styles */
+.card {
+  @apply bg-nodeen-surface rounded-2xl p-6 shadow-soft border border-nodeen-primary border-opacity-20;
+}
+
+.card-hover {
+  @apply card hover:border-opacity-40 hover:shadow-md transition-all duration-200;
+}
+
+/* Input styles */
+.input {
+  @apply w-full p-3 rounded-xl bg-nodeen-bg border border-nodeen-primary text-nodeen-text placeholder-nodeen-text placeholder-opacity-50 focus:outline-none focus:ring-2 focus:ring-nodeen-secondary focus:border-transparent transition-all duration-200;
+}
+
+.input-error {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+/* Table styles */
+.table {
+  @apply w-full border-collapse;
+}
+
+.table th {
+  @apply bg-nodeen-primary bg-opacity-20 text-nodeen-text p-4 text-left font-semibold text-sm uppercase tracking-wider;
+}
+
+.table td {
+  @apply p-4 border-b border-nodeen-primary border-opacity-20;
+}
+
+.table tr:hover {
+  @apply bg-nodeen-primary bg-opacity-10;
+}
+
+/* Status badges */
+.status-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-active {
+  @apply status-badge bg-green-500 bg-opacity-20 text-green-400;
+}
+
+.status-inactive {
+  @apply status-badge bg-red-500 bg-opacity-20 text-red-400;
+}
+
+.status-pending {
+  @apply status-badge bg-yellow-500 bg-opacity-20 text-yellow-400;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply inline-block w-6 h-6 border-2 border-solid border-current border-r-transparent rounded-full animate-spin;
+}
+
+/* Grid layouts */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .system-dark\:bg-nodeen-bg {
+    background-color: var(--nodeen-bg);
+  }
+  
+  .system-dark\:text-nodeen-text {
+    color: var(--nodeen-text);
+  }
+}
+
+/* Focus visible for accessibility */
+.focus-visible\:ring-2:focus-visible {
+  @apply outline-none ring-2 ring-nodeen-secondary ring-offset-2 ring-offset-nodeen-bg;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .mobile-stack {
+    @apply flex flex-col space-y-4;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+}
+
+/* Custom utilities */
+.glass-effect {
+  background: rgba(16, 31, 51, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(15, 106, 166, 0.2);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--nodeen-primary), var(--nodeen-secondary));
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--nodeen-accent), #FF8C00);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Finance specific styles */
+.debit-amount {
+  @apply text-red-400 font-medium;
+}
+
+.credit-amount {
+  @apply text-green-400 font-medium;
+}
+
+.balance-positive {
+  @apply text-green-400;
+}
+
+.balance-negative {
+  @apply text-red-400;
+}
+
+/* HR specific styles */
+.salary-amount {
+  @apply text-nodeen-accent font-semibold;
+}
+
+.deduction-amount {
+  @apply text-red-400;
+}
+
+.contribution-amount {
+  @apply text-blue-400;
+}

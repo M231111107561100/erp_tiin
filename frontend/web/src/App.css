@@ -1,0 +1,476 @@
+/* Additional global styles for ERP Tiin */
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+  outline: 2px solid var(--nodeen-secondary);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for the entire app */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--nodeen-primary) var(--nodeen-bg);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nodeen-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nodeen-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nodeen-secondary);
+}
+
+/* Print styles for reports */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break-before {
+    page-break-before: always;
+  }
+  
+  .print-break-after {
+    page-break-after: always;
+  }
+  
+  .print-break-inside-avoid {
+    page-break-inside: avoid;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .card {
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Loading states */
+.skeleton {
+  background: linear-gradient(90deg, var(--nodeen-surface) 25%, var(--nodeen-bg) 50%, var(--nodeen-surface) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Financial number formatting */
+.number-positive {
+  color: #10B981;
+}
+
+.number-negative {
+  color: #EF4444;
+}
+
+.number-zero {
+  color: #6B7280;
+}
+
+/* Status indicators */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-dot.success {
+  background-color: #10B981;
+}
+
+.status-dot.warning {
+  background-color: #F59E0B;
+}
+
+.status-dot.error {
+  background-color: #EF4444;
+}
+
+.status-dot.info {
+  background-color: #3B82F6;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--nodeen-surface);
+  color: var(--nodeen-text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  border: 1px solid var(--nodeen-primary);
+  z-index: 1000;
+}
+
+.tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 8px);
+}
+
+/* Form validation styles */
+.input-error {
+  border-color: #EF4444 !important;
+}
+
+.error-message {
+  color: #EF4444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Success message */
+.success-message {
+  color: #10B981;
+  font-size: 14px;
+  padding: 12px;
+  background: #10B98120;
+  border-radius: 6px;
+  border: 1px solid #10B98140;
+}
+
+/* Warning message */
+.warning-message {
+  color: #F59E0B;
+  font-size: 14px;
+  padding: 12px;
+  background: #F59E0B20;
+  border-radius: 6px;
+  border: 1px solid #F59E0B40;
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Kanban board styles (for future features) */
+.kanban-board {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 16px;
+}
+
+.kanban-column {
+  min-width: 300px;
+  background: var(--nodeen-surface);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.kanban-item {
+  background: var(--nodeen-bg);
+  border: 1px solid var(--nodeen-primary);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  cursor: move;
+}
+
+.kanban-item:hover {
+  border-color: var(--nodeen-secondary);
+}
+
+/* Timeline for activity feeds */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--nodeen-primary);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nodeen-secondary);
+  border: 2px solid var(--nodeen-bg);
+}
+
+/* Calendar styles (for future features) */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--nodeen-primary);
+  border: 1px solid var(--nodeen-primary);
+}
+
+.calendar-day {
+  background: var(--nodeen-bg);
+  padding: 12px;
+  min-height: 100px;
+}
+
+.calendar-day.header {
+  background: var(--nodeen-surface);
+  font-weight: 600;
+  text-align: center;
+}
+
+.calendar-day.today {
+  background: var(--nodeen-primary);
+  opacity: 0.1;
+}
+
+/* Progress bars */
+.progress-bar {
+  background: var(--nodeen-bg);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 8px;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* Badge variants */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background: var(--nodeen-primary);
+  color: white;
+}
+
+.badge-secondary {
+  background: var(--nodeen-secondary);
+  color: white;
+}
+
+.badge-success {
+  background: #10B981;
+  color: white;
+}
+
+.badge-warning {
+  background: #F59E0B;
+  color: white;
+}
+
+.badge-error {
+  background: #EF4444;
+  color: white;
+}
+
+/* Avatar styles */
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  color: white;
+}
+
+.avatar-sm {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.avatar-md {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.avatar-lg {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.avatar-xl {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .system-dark\:hidden {
+    display: none;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  .mobile-full {
+    width: 100%;
+  }
+  
+  .mobile-text-center {
+    text-align: center;
+  }
+  
+  .mobile-p-4 {
+    padding: 16px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --nodeen-primary: #0066CC;
+    --nodeen-secondary: #008866;
+    --nodeen-accent: #CC5500;
+    --nodeen-bg: #000000;
+    --nodeen-surface: #111111;
+    --nodeen-text: #FFFFFF;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicators for keyboard navigation */
+.focus-indicator:focus {
+  outline: 2px solid var(--nodeen-accent);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background: var(--nodeen-primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--nodeen-primary);
+  color: white;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: var(--nodeen-text);
+  opacity: 0.5;
+}
+
+::-webkit-input-placeholder {
+  color: var(--nodeen-text);
+  opacity: 0.5;
+}
+
+::-moz-placeholder {
+  color: var(--nodeen-text);
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+  color: var(--nodeen-text);
+  opacity: 0.5;
+}
+
+/* Financial table specific styles */
+.financial-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.financial-table th {
+  background: var(--nodeen-surface);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid var(--nodeen-primary);
+}
+
+.financial-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--nodeen-primary);
+  opacity: 0.7;
+}
+
+.financial-table tr:hover td {
+  background: var(--nodeen-primary);
+  opacity: 0.1;
+}
+
+.financial-table .total-row {
+  font-weight: 700;
+  background: var(--nodeen-surface);
+}
+
+.financial-table .total-row td {
+  border-top: 2px solid var(--nodeen-primary);
+  opacity: 1;
+}

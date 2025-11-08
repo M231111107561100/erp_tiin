@@ -1,0 +1,44 @@
+http:
+  middlewares:
+    sec:
+      headers:
+        stsSeconds: 0            # HSTS désactivé en dev
+        contentTypeNosniff: true
+        browserXssFilter: true
+        frameDeny: true
+        referrerPolicy: "no-referrer"
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "DENY"
+          X-XSS-Protection: "1; mode=block"
+    cors:
+      headers:
+        accessControlAllowOriginList: ["http://localhost:5173","http://localhost:8080"]
+        accessControlAllowMethods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+        accessControlAllowHeaders: ["Authorization","Content-Type"]
+        accessControlAllowCredentials: true
+
+  routers:
+    finance:
+      rule: "HostRegexp(`localhost`)"
+      service: finance
+      middlewares: ["sec","cors"]
+    hr:
+      rule: "HostRegexp(`localhost`)"
+      service: hr
+      middlewares: ["sec","cors"]
+    web:
+      rule: "HostRegexp(`localhost`)"
+      service: web
+      middlewares: ["sec","cors"]
+
+  services:
+    finance:
+      loadBalancer:
+        servers: [{ url: "http://finance:5000" }]
+    hr:
+      loadBalancer:
+        servers: [{ url: "http://hr:5000" }]
+    web:
+      loadBalancer:
+        servers: [{ url: "http://web:5173" }]
